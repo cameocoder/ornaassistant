@@ -89,6 +89,9 @@ class LogCollector @Inject constructor() {
                 logs.appendLine(line)
             }
 
+            // Destroy the process to release resources
+            process.destroy()
+
             logs.toString()
         } catch (e: Exception) {
             Log.e(TAG, "Error getting logcat output", e)
